@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // md-to-html.mjs - a Markdown file becomes a page you can open in a tab.
 //
 // WHY IT EXISTS. A doc handed over should arrive as something readable on a second screen, with its
@@ -33,7 +34,7 @@ import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-export const VERSION = '1.2.1';
+export const VERSION = '1.2.2';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -309,6 +310,9 @@ const CASES = [
   // The command line is part of the promise too: a stranger's first command must not cost them time.
   ['--help is an answer, not an error', null, () => { const r = spawnSync(process.execPath, [self, '--help'], { encoding: 'utf8' }); return r.status === 0 && r.stdout.includes('<file.md>'); }],
   ['a missing file is a sentence, not a stack trace', null, () => { const r = spawnSync(process.execPath, [self, 'no-such-file.md'], { encoding: 'utf8' }); return r.status === 2 && /no such file/.test(r.stderr) && !/\n\s+at /.test(r.stderr); }],
+  // npm builds the installed command from the shebang: without one it calls the file directly and
+  // the command silently does nothing. Found by installing it and running it, which is the point.
+  ['the file carries a shebang, so a global install makes a working command', null, () => fs.readFileSync(self, 'utf8').startsWith('#!/usr/bin/env node')],
 ];
 
 function selfTest() {
