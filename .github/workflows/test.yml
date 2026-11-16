@@ -1,0 +1,30 @@
+name: self-test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  self-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # 1. the tool proves itself before it is trusted with anything
+      - name: self-test
+        run: node md-to-html.mjs --self-test
+
+      # 2. it renders the example that ships with it
+      - name: render the example
+        run: node md-to-html.mjs examples/demo.md --out "$RUNNER_TEMP/demo.html"
+
+      # 3. and the output is a page, not a near-miss
+      - name: the page has what the README promises
+        run: |
+          for tag in '<h1>' '<h2>' '<table>' '<th>' '<thead>' '<ul>' '<ol>' '<li>' '<blockquote>' '<pre><code>' '<hr>' '<strong>' '<em>' '<code>'; do
+            grep -q "$tag" "$RUNNER_TEMP/demo.html" || { echo "missing $tag"; exit 1; }
+          done
+          echo "every promised tag is in the page"

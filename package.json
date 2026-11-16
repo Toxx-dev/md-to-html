@@ -1,0 +1,30 @@
+{
+  "name": "md-to-html",
+  "version": "1.2.1",
+  "description": "A Markdown file becomes a page you can open in a tab. One file, zero dependencies: headings, lists, tables, code, links, images, and wikilinks rendered as plain names.",
+  "type": "module",
+  "bin": {
+    "md-to-html": "md-to-html.mjs"
+  },
+  "files": [
+    "md-to-html.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node md-to-html.mjs --self-test"
+  },
+  "keywords": [
+    "markdown",
+    "html",
+    "converter",
+    "renderer",
+    "cli",
+    "offline",
+    "zero-dependencies"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
