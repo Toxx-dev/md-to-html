@@ -17,7 +17,7 @@ md-to-html.mjs v1.2.1 — self-test
   PASS  italic
   PASS  bold holding italics
   ...
-  29/29 passed
+  30/30 passed
 ```
 
 Then the thing you actually wanted:
@@ -40,7 +40,7 @@ The page lands next to your file, with working links, real tables, and a dark lo
 git clone https://github.com/Toxx-dev/md-to-html.git
 cd md-to-html
 
-node md-to-html.mjs --self-test                       # 29/29 — proves itself before you trust it
+node md-to-html.mjs --self-test                       # 30/30 — proves itself before you trust it
 node md-to-html.mjs examples/demo.md --out demo.html  # render the example, then open demo.html
 ```
 
@@ -113,7 +113,7 @@ All seven are fixed and all seven are cases. Then the command line got the same 
 
 ```bash
 node md-to-html.mjs notes.md --open
-node md-to-html.mjs --self-test     # 29/29
+node md-to-html.mjs --self-test     # 30/30
 ```
 
 `--help` 与 `--version` 都以 `0` 退出——问问题不是出错；路径写错时会给你一句话，而不是一堆堆栈跟踪。它是一个诚实的子集，不是完整的 Markdown 实现：支持范围之外的内容原样保留，不会被改坏。
@@ -126,7 +126,7 @@ node md-to-html.mjs --self-test     # 29/29
 
 ```bash
 node md-to-html.mjs notes.md --open
-node md-to-html.mjs --self-test     # 29/29
+node md-to-html.mjs --self-test     # 30/30
 ```
 
 `--help` と `--version` は `0` で終わります（質問はエラーではありません）。存在しないパスは、スタックトレースではなく一文で返します。完全な Markdown 実装ではなく、正直な部分集合です。対応範囲の外にあるものは壊さずそのまま残します。
@@ -139,7 +139,7 @@ node md-to-html.mjs --self-test     # 29/29
 
 ```bash
 node md-to-html.mjs notes.md --open
-node md-to-html.mjs --self-test     # 29/29
+node md-to-html.mjs --self-test     # 30/30
 ```
 
 `--help`와 `--version`은 `0`으로 끝납니다. 질문은 오류가 아니니까요. 없는 경로는 스택 트레이스가 아니라 한 문장으로 알려 줍니다. 완전한 Markdown 구현이 아니라 정직한 부분집합이고, 지원 범위 밖의 내용은 망가뜨리지 않고 그대로 남깁니다.
