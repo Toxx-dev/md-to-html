@@ -9,7 +9,7 @@ node md-to-html.mjs --self-test
 ```
 
 ```text
-md-to-html.mjs v1.2.1 — self-test
+md-to-html.mjs v0.1.0 — self-test
 
   PASS  a heading becomes an h1
   PASS  a soft-wrapped paragraph is joined

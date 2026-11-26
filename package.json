@@ -1,6 +1,6 @@
 {
   "name": "md-to-html",
-  "version": "1.2.1",
+  "version": "0.1.0",
   "description": "A Markdown file becomes a page you can open in a tab. One file, zero dependencies: headings, lists, tables, code, links, images, and wikilinks rendered as plain names.",
   "type": "module",
   "bin": {
